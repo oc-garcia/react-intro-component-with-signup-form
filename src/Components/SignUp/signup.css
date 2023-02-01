@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --Red: hsl(0, 100%, 74%);
+  --Green: hsl(154, 59%, 51%);
+  --Blue: hsl(248, 32%, 49%);
+  --Dark_Blue: hsl(249, 10%, 26%);
+  --Grayish_Blue: hsl(246, 25%, 77%);
+
+}
+
+.page-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--Red);
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../../public/assets/images/bg-intro-desktop.png);
+}
+
+.card-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+}
+
+.card-container h1{
+    color: white;
+    font-weight: 700;
+    font-size: xx-large;
+}
+
+.card-container p {
+    color: white;
+    font-weight: 300;
+}
+
+.card-container h2{
+    text-align: center;;
+    background-color: var(--Blue);
+    padding: 1rem;
+    border-radius: 5px;
+    font-weight: 300;
+    color: white;
+}
+
+.card-container form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: white;
+    justify-content: space-between;
+}
