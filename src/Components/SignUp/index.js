@@ -1,6 +1,14 @@
 import "./signup.css";
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   return (
     <main className="page-container">
       <section className="card-container">
@@ -14,11 +22,11 @@ const SignUp = () => {
         <h2>
           <strong>Try it free 7 days</strong> then $20/mo. thereafter
         </h2>
-        <form>
-          <input />
-          <input />
-          <input />
-          <input />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input placeholder="First Name" {...register("firstName")} />
+          <input placeholder="Last Name" {...register("lastName")} />
+          <input placeholder="Email Address" {...register("email")} />
+          <input placeholder="Password" {...register("password")} type="password" />
           <button>CLAIM YOUR FREE TRIAL</button>
           <p>
             By clicking the button you are agreeing to our <span>Terms and Services</span>
