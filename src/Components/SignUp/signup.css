@@ -106,4 +106,5 @@
 
 .input-error {
   background-image: url(../../../public/assets/images/icon-error.svg);
+  background-repeat: no-repeat;
 }

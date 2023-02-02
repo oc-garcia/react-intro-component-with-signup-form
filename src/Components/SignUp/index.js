@@ -1,5 +1,6 @@
 import "./signup.css";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const SignUp = () => {
   const {
