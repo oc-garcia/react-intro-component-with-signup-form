@@ -23,11 +23,40 @@ const SignUp = () => {
           <strong>Try it free 7 days</strong> then $20/mo. thereafter
         </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input placeholder="First Name" {...register("firstName")} />
-          <input placeholder="Last Name" {...register("lastName")} />
-          <input placeholder="Email Address" {...register("email")} />
-          <input placeholder="Password" {...register("password")} type="password" />
-          <button>CLAIM YOUR FREE TRIAL</button>
+          <div>
+            <input
+              className={errors.required ? "input-error" : "input-ok"}
+              placeholder="First Name"
+              {...register("firstName", { required: "First Name cannot be empty" })}
+            />
+            <span>{errors.firstName?.message}</span>
+          </div>
+          <div>
+            <input placeholder="Last Name" {...register("lastName", { required: "Last Name cannot be empty" })} />
+            <span>{errors.lastName?.message}</span>
+          </div>
+          <div>
+            <input
+              placeholder="Email Address"
+              {...register("email", {
+                required: "Email cannot be empty",
+                pattern: { value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i, message: "Looks like this is not an email" },
+              })}
+            />
+            <span>{errors.email?.message}</span>
+          </div>
+          <div>
+            <input
+              placeholder="Password"
+              {...register("password", {
+                required: "Password cannot be empty",
+                minLength: { value: 6, message: "Password must have at least 6 characters" },
+              })}
+              type="password"
+            />
+            <span>{errors.password?.message}</span>
+          </div>
+          <button onClick={console.log(errors)}>CLAIM YOUR FREE TRIAL</button>
           <p>
             By clicking the button you are agreeing to our <span>Terms and Services</span>
           </p>
