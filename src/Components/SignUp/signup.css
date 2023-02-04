@@ -8,14 +8,17 @@
   --Grayish_Blue: hsl(246, 25%, 77%);
 }
 
+body {
+  background: var(--Red);
+  background-image: url(../../../public/assets/images/bg-intro-desktop.png);
+}
+
 .page-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: var(--Red);
   width: 100vw;
   height: 100vh;
-  background-image: url(../../../public/assets/images/bg-intro-desktop.png);
 }
 
 .card-container {
@@ -48,7 +51,7 @@
 
 .card-container form {
   display: flex;
-  height: 60vh;
+  height: 30rem;
   flex-direction: column;
   padding: 1rem 2rem;
   background-color: white;
@@ -118,3 +121,27 @@
   outline: none;
 }
 
+@media only screen and (max-width: 600px) {
+  .page-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: none;
+    margin-bottom: 2rem;
+    padding: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  .card-container {
+    padding: 0 1rem;
+  }
+
+  .card-container h1 {
+    text-align: center;
+  }
+
+  .card-container p {
+    text-align: center;
+  }
+}
