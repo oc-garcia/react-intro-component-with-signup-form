@@ -8,6 +8,9 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [hasError, setHasError] = useState(false);
+
   const onSubmit = (data) => console.log(data);
 
   return (
@@ -26,18 +29,23 @@ const SignUp = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <input
-              className={errors.required ? "input-error" : "input-ok"}
+              className={hasError && errors.firstName ? "input-error" : "input-ok"}
               placeholder="First Name"
               {...register("firstName", { required: "First Name cannot be empty" })}
             />
             <span>{errors.firstName?.message}</span>
           </div>
           <div>
-            <input placeholder="Last Name" {...register("lastName", { required: "Last Name cannot be empty" })} />
+            <input
+              className={hasError && errors.lastName ? "input-error" : "input-ok"}
+              placeholder="Last Name"
+              {...register("lastName", { required: "Last Name cannot be empty" })}
+            />
             <span>{errors.lastName?.message}</span>
           </div>
           <div>
             <input
+              className={hasError && errors.email ? "input-error" : "input-ok"}
               placeholder="Email Address"
               {...register("email", {
                 required: "Email cannot be empty",
@@ -48,6 +56,7 @@ const SignUp = () => {
           </div>
           <div>
             <input
+              className={hasError && errors.password ? "input-error" : "input-ok"}
               placeholder="Password"
               {...register("password", {
                 required: "Password cannot be empty",
@@ -57,7 +66,12 @@ const SignUp = () => {
             />
             <span>{errors.password?.message}</span>
           </div>
-          <button onClick={console.log(errors)}>CLAIM YOUR FREE TRIAL</button>
+          <button
+            onClick={() => {
+              setHasError(true);
+            }}>
+            CLAIM YOUR FREE TRIAL
+          </button>
           <p>
             By clicking the button you are agreeing to our <span>Terms and Services</span>
           </p>

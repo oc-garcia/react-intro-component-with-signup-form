@@ -62,18 +62,18 @@
   flex-direction: column;
 }
 
-.card-container form div input {
+.input-ok {
   padding: 1rem;
   border: 1px solid var(--Grayish_Blue);
   border-radius: 5px;
 }
 
-.card-container form div input::placeholder {
+.input-ok::placeholder {
   color: var(--Grayish_Blue);
   font-weight: 700;
 }
 
-.card-container form div input:focus {
+.input-ok:focus {
   outline: none;
 }
 
@@ -105,6 +105,16 @@
 }
 
 .input-error {
+  padding: 1rem;
+  border-radius: 5px;
   background-image: url(../../../public/assets/images/icon-error.svg);
+  background-size: 1rem;
   background-repeat: no-repeat;
+  background-position: 90%;
+  border: 1px solid var(--Red);
 }
+
+.input-error:focus {
+  outline: none;
+}
+
